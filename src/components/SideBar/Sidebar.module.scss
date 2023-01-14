@@ -1,0 +1,21 @@
+.sidebar {
+    background-color: rgb(217, 247, 85);
+}
+.link {
+    display: block;
+    min-width: 100%;
+    color: #fff;
+}
+.active {
+    color: aqua;
+}
+.nav {
+    padding: 1rem;
+}
+.item {
+    padding: 0.25rem;
+    transition: background-color .1s linear;
+    &:hover {
+        background-color: rgba($color: #df9797, $alpha: 0.3);
+    }
+}
