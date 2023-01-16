@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header';
 import Messages from './components/Messages/Messages';
@@ -11,23 +11,35 @@ import Music from './components/Music/Music';
 const App = (props) => {
 
   return (
-    <BrowserRouter>
-      <div className="app__wrapper">
-        <Header />
-        <div className="page__wrapper">
-          <SideBar />
-          <div className="page__content">
-            <Routes>
-              <Route path="/profile/*" element={<Profile state={props.state.profilePage}/>}/>
-              <Route path="/messages/*" element={<Messages state={props.state.messagesPage}/>}/>
-              <Route path="/options/*" element={<Options/>}/>
-              <Route path="/news/*" element={<News/>}/>
-              <Route path="/music/*" element={<Music/>}/>
-            </Routes>
-          </div>
+    <div className="app__wrapper">
+      <Header />
+      <div className="page__wrapper">
+        <SideBar />
+        <div className="page__content">
+          <Routes>
+            <Route
+              path="/profile/*"
+              element={<Profile
+                profilePage={props.state.profilePage}
+                addPost={props.addPost} 
+                updateNewPostText={props.updateNewPostText}/>} />
+            <Route
+              path="/messages/*"
+              element={<Messages
+                messagesPage={props.state.messagesPage} />} />
+            <Route
+              path="/options/*"
+              element={<Options />} />
+            <Route
+              path="/news/*"
+              element={<News />} />
+            <Route
+              path="/music/*"
+              element={<Music />} />
+          </Routes>
         </div>
       </div>
-    </BrowserRouter>
+    </div>
   );
 }
 
